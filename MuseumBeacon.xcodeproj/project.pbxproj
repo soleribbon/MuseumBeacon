@@ -14,6 +14,8 @@
 		530C0C0C2BC044AD00FB4BDD /* MuseumBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0C0B2BC044AD00FB4BDD /* MuseumBeaconTests.swift */; };
 		530C0C162BC044AD00FB4BDD /* MuseumBeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0C152BC044AD00FB4BDD /* MuseumBeaconUITests.swift */; };
 		530C0C182BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0C172BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift */; };
+		53CE5C7F2BC05DA00019C740 /* BeaconDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CE5C7E2BC05DA00019C740 /* BeaconDetector.swift */; };
+		53EA03C52BC95C6A000E9BB3 /* BeaconSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EA03C42BC95C6A000E9BB3 /* BeaconSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		530C0C112BC044AD00FB4BDD /* MuseumBeaconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseumBeaconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		530C0C152BC044AD00FB4BDD /* MuseumBeaconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumBeaconUITests.swift; sourceTree = "<group>"; };
 		530C0C172BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumBeaconUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		53CE5C7E2BC05DA00019C740 /* BeaconDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetector.swift; sourceTree = "<group>"; };
+		53EA03C42BC95C6A000E9BB3 /* BeaconSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				530C0BFA2BC044AB00FB4BDD /* MuseumBeaconApp.swift */,
+				53CE5C7E2BC05DA00019C740 /* BeaconDetector.swift */,
+				53EA03C42BC95C6A000E9BB3 /* BeaconSetup.swift */,
 				530C0BFC2BC044AB00FB4BDD /* ContentView.swift */,
 				530C0BFE2BC044AD00FB4BDD /* Assets.xcassets */,
 				530C0C002BC044AD00FB4BDD /* Preview Content */,
@@ -258,6 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				530C0BFD2BC044AB00FB4BDD /* ContentView.swift in Sources */,
+				53EA03C52BC95C6A000E9BB3 /* BeaconSetup.swift in Sources */,
+				53CE5C7F2BC05DA00019C740 /* BeaconDetector.swift in Sources */,
 				530C0BFB2BC044AB00FB4BDD /* MuseumBeaconApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,14 +430,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MuseumBeacon/Preview Content\"";
-				DEVELOPMENT_TEAM = 9BE635EL7K;
+				DEVELOPMENT_TEAM = JPXSGQNS89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MuseumBeacon/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to enable museum experiences.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to enable museum experiences.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,14 +463,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MuseumBeacon/Preview Content\"";
-				DEVELOPMENT_TEAM = 9BE635EL7K;
+				DEVELOPMENT_TEAM = JPXSGQNS89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MuseumBeacon/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to enable museum experiences.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to enable museum experiences.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
