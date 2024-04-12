@@ -1,8 +1,8 @@
 
 # MuseumBeacon
 <p align="left">
-  <img alt="Platform" src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white&style=flat-square"/>
-  <img alt="Language" src="https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white&style=plastic"/>
+  <img alt="Platform" src="https://img.shields.io/badge/iOS-38761d?style=for-the-badge&style=plastic"/>
+  <img alt="Language" src="https://img.shields.io/badge/Swift-f75c25?style=for-the-badge&logo=swift&logoColor=white&style=plastic"/>
 </p>
 
 
