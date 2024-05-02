@@ -11,7 +11,7 @@ import SwiftUI
 struct MuseumBeaconApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            InteractiveUpdatesView()
         }
     }
 }

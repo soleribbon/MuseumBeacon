@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "DALL·E 2024-05-02 12.44.00 - A Renaissance style painting of a scholar's study, filled with books, scrolls, and ancient artifacts. The scholar, an elderly man, is depicted sitting.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "DALL·E 2024-05-02 12.44.00 - A Renaissance style painting of a scholar's study, filled with books, scrolls, and ancient artifacts. The scholar, an elderly man, is depicted sitting 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "DALL·E 2024-05-02 12.44.00 - A Renaissance style painting of a scholar's study, filled with books, scrolls, and ancient artifacts. The scholar, an elderly man, is depicted sitting 2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
