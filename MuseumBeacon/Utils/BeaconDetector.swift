@@ -1,6 +1,8 @@
 import Foundation
 import CoreLocation
 import Combine
+import AVFoundation
+import UIKit
 
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
@@ -9,11 +11,14 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var locationManager: CLLocationManager?
     @Published var proximityDescription = "Searching..."
     @Published var lastKnownBeacon: MuseumBeacon?
-    @Published var showAlert = false  // Flag to show alert
-    @Published var potentialNewBeacon: MuseumBeacon?  // Store potential new beacon
+    @Published var showAlert = false
+    @Published var potentialNewBeacon: MuseumBeacon?
     private var beaconSignals: [UUID: [Double]] = [:]
     private var beaconStability: [UUID: Int] = [:]
-    private let stabilityThreshold = 5  // Lowered for quicker updates
+    private let stabilityThreshold = 5
+
+    private var lastAnnouncedRoom: UUID?
+    var speechSynthesizer = AVSpeechSynthesizer()
 
     override init() {
         super.init()
@@ -53,43 +58,67 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-            var foundNewClosest = false
+        var foundNewClosest = false
 
-            for beacon in beacons.filter({ $0.proximity != .unknown && $0.accuracy > 0 }) {
-                let beaconKey = beacon.uuid
-                beaconSignals[beaconKey, default: []].append(beacon.accuracy)
-                if beaconSignals[beaconKey]!.count > 10 { beaconSignals[beaconKey]!.removeFirst() }
-            }
+        for beacon in beacons.filter({ $0.proximity != .unknown && $0.accuracy > 0 }) {
+            let beaconKey = beacon.uuid
+            beaconSignals[beaconKey, default: []].append(beacon.accuracy)
+            if beaconSignals[beaconKey]!.count > 10 { beaconSignals[beaconKey]!.removeFirst() }
+        }
 
-            let sortedBeacons = beaconSignals.keys.sorted {
-                (beaconSignals[$0]!.reduce(0, +) / Double(beaconSignals[$0]!.count)) <
+        let sortedBeacons = beaconSignals.keys.sorted {
+            (beaconSignals[$0]!.reduce(0, +) / Double(beaconSignals[$0]!.count)) <
                 (beaconSignals[$1]!.reduce(0, +) / Double(beaconSignals[$1]!.count))
-            }
+        }
 
-            if let closestBeaconUUID = sortedBeacons.first,
-               let beaconInfo = BeaconSetup.beacons.first(where: { $0.id == closestBeaconUUID }) {
-                beaconStability[closestBeaconUUID, default: 0] += 1
+        if let closestBeaconUUID = sortedBeacons.first,
+           let beaconInfo = BeaconSetup.beacons.first(where: { $0.id == closestBeaconUUID }) {
+            beaconStability[closestBeaconUUID, default: 0] += 1
 
-                if beaconStability[closestBeaconUUID]! >= stabilityThreshold && (lastKnownBeacon == nil || lastKnownBeacon!.id != closestBeaconUUID) {
-                    foundNewClosest = true
-                    potentialNewBeacon = beaconInfo
-                }
-            }
-
-            // Update only if user confirms the new closest beacon
-            if foundNewClosest {
-                showAlert = true
+            if beaconStability[closestBeaconUUID]! >= stabilityThreshold && (lastKnownBeacon == nil || lastKnownBeacon!.id != closestBeaconUUID) &&
+                (lastAnnouncedRoom != closestBeaconUUID) {
+                foundNewClosest = true
+                potentialNewBeacon = beaconInfo
             }
         }
 
-        func confirmRoomChange() {
-            if let newBeacon = potentialNewBeacon {
-                DispatchQueue.main.async {
-                    self.lastKnownBeacon = newBeacon
-                    self.proximityDescription = "Close to: \(newBeacon.roomName)"
-                    self.showAlert = false
-                    self.potentialNewBeacon = nil
+        // Update only if user confirms the new closest beacon
+        if foundNewClosest {
+            //RAVI TESTING - NIGHTTIME
+            //                showAlert = true
+            confirmRoomChange()
+        }
+    }
+
+    func confirmRoomChange() {
+        if let newBeacon = potentialNewBeacon {
+            DispatchQueue.main.async {
+                self.lastKnownBeacon = newBeacon
+                self.proximityDescription = "Close to: \(newBeacon.roomName)"
+                self.showAlert = false
+                self.potentialNewBeacon = nil
+                if self.lastAnnouncedRoom != newBeacon.id {
+                    self.speak("\(newBeacon.roomName) by \(newBeacon.artist). \(newBeacon.description)")
+
+                    // Update the last announced room
+                    self.lastAnnouncedRoom = newBeacon.id
                 }
             }
         }
+
+    }
+
+    // BeaconDetector.swift adjustments for speak function:
+    func speak(_ text: String, ignoreVoiceOverCheck: Bool = false) {
+
+            let utterance = AVSpeechUtterance(string: text)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            utterance.rate = 0.5
+            speechSynthesizer.speak(utterance)
+        
+    }
+
+
+
+
 }

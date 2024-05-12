@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530A06E82BEDA72E004775D1 /* AllRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A06E72BEDA72E004775D1 /* AllRoomsView.swift */; };
 		530C0BFB2BC044AB00FB4BDD /* MuseumBeaconApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0BFA2BC044AB00FB4BDD /* MuseumBeaconApp.swift */; };
-		530C0BFD2BC044AB00FB4BDD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0BFC2BC044AB00FB4BDD /* ContentView.swift */; };
 		530C0BFF2BC044AD00FB4BDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530C0BFE2BC044AD00FB4BDD /* Assets.xcassets */; };
 		530C0C022BC044AD00FB4BDD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530C0C012BC044AD00FB4BDD /* Preview Assets.xcassets */; };
 		530C0C0C2BC044AD00FB4BDD /* MuseumBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0C0B2BC044AD00FB4BDD /* MuseumBeaconTests.swift */; };
 		530C0C162BC044AD00FB4BDD /* MuseumBeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0C152BC044AD00FB4BDD /* MuseumBeaconUITests.swift */; };
 		530C0C182BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0C172BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift */; };
+		538AF68C2BEE52EA00DFE222 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AF68B2BEE52EA00DFE222 /* RoomView.swift */; };
+		538AF68E2BEE643700DFE222 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538AF68D2BEE643700DFE222 /* LaunchScreen.storyboard */; };
 		53A591BD2BE2BFDD00BBB034 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A591BC2BE2BFDD00BBB034 /* Functions.swift */; };
-		53A591BF2BE3AF2D00BBB034 /* MuseumHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A591BE2BE3AF2D00BBB034 /* MuseumHomeView.swift */; };
 		53A591C12BE3B30000BBB034 /* InteractiveUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A591C02BE3B30000BBB034 /* InteractiveUpdatesView.swift */; };
-		53A591C62BE3CC4E00BBB034 /* MuseumRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A591C52BE3CC4E00BBB034 /* MuseumRoomView.swift */; };
 		53CE5C7F2BC05DA00019C740 /* BeaconDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CE5C7E2BC05DA00019C740 /* BeaconDetector.swift */; };
 		53EA03C52BC95C6A000E9BB3 /* BeaconSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EA03C42BC95C6A000E9BB3 /* BeaconSetup.swift */; };
 /* End PBXBuildFile section */
@@ -40,9 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		530A06E72BEDA72E004775D1 /* AllRoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRoomsView.swift; sourceTree = "<group>"; };
 		530C0BF72BC044AB00FB4BDD /* MuseumBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuseumBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		530C0BFA2BC044AB00FB4BDD /* MuseumBeaconApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumBeaconApp.swift; sourceTree = "<group>"; };
-		530C0BFC2BC044AB00FB4BDD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		530C0BFE2BC044AD00FB4BDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		530C0C012BC044AD00FB4BDD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		530C0C072BC044AD00FB4BDD /* MuseumBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseumBeaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,10 +50,10 @@
 		530C0C112BC044AD00FB4BDD /* MuseumBeaconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseumBeaconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		530C0C152BC044AD00FB4BDD /* MuseumBeaconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumBeaconUITests.swift; sourceTree = "<group>"; };
 		530C0C172BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumBeaconUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		538AF68B2BEE52EA00DFE222 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
+		538AF68D2BEE643700DFE222 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53A591BC2BE2BFDD00BBB034 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		53A591BE2BE3AF2D00BBB034 /* MuseumHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumHomeView.swift; sourceTree = "<group>"; };
 		53A591C02BE3B30000BBB034 /* InteractiveUpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveUpdatesView.swift; sourceTree = "<group>"; };
-		53A591C52BE3CC4E00BBB034 /* MuseumRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumRoomView.swift; sourceTree = "<group>"; };
 		53CE5C7E2BC05DA00019C740 /* BeaconDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetector.swift; sourceTree = "<group>"; };
 		53EA03C42BC95C6A000E9BB3 /* BeaconSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,8 +109,8 @@
 				530C0BFA2BC044AB00FB4BDD /* MuseumBeaconApp.swift */,
 				53A591C02BE3B30000BBB034 /* InteractiveUpdatesView.swift */,
 				53A591C82BE3CDFC00BBB034 /* Utils */,
-				53A591C72BE3CD6E00BBB034 /* SummaryOld */,
 				530C0BFE2BC044AD00FB4BDD /* Assets.xcassets */,
+				538AF68D2BEE643700DFE222 /* LaunchScreen.storyboard */,
 				530C0C002BC044AD00FB4BDD /* Preview Content */,
 			);
 			path = MuseumBeacon;
@@ -141,20 +141,12 @@
 			path = MuseumBeaconUITests;
 			sourceTree = "<group>";
 		};
-		53A591C72BE3CD6E00BBB034 /* SummaryOld */ = {
-			isa = PBXGroup;
-			children = (
-				53A591BE2BE3AF2D00BBB034 /* MuseumHomeView.swift */,
-				530C0BFC2BC044AB00FB4BDD /* ContentView.swift */,
-				53A591C52BE3CC4E00BBB034 /* MuseumRoomView.swift */,
-			);
-			path = SummaryOld;
-			sourceTree = "<group>";
-		};
 		53A591C82BE3CDFC00BBB034 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				53CE5C7E2BC05DA00019C740 /* BeaconDetector.swift */,
+				530A06E72BEDA72E004775D1 /* AllRoomsView.swift */,
+				538AF68B2BEE52EA00DFE222 /* RoomView.swift */,
 				53EA03C42BC95C6A000E9BB3 /* BeaconSetup.swift */,
 				53A591BC2BE2BFDD00BBB034 /* Functions.swift */,
 			);
@@ -269,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538AF68E2BEE643700DFE222 /* LaunchScreen.storyboard in Resources */,
 				530C0C022BC044AD00FB4BDD /* Preview Assets.xcassets in Resources */,
 				530C0BFF2BC044AD00FB4BDD /* Assets.xcassets in Resources */,
 			);
@@ -295,12 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				530C0BFD2BC044AB00FB4BDD /* ContentView.swift in Sources */,
 				53EA03C52BC95C6A000E9BB3 /* BeaconSetup.swift in Sources */,
 				53CE5C7F2BC05DA00019C740 /* BeaconDetector.swift in Sources */,
-				53A591C62BE3CC4E00BBB034 /* MuseumRoomView.swift in Sources */,
-				53A591BF2BE3AF2D00BBB034 /* MuseumHomeView.swift in Sources */,
 				53A591BD2BE2BFDD00BBB034 /* Functions.swift in Sources */,
+				538AF68C2BEE52EA00DFE222 /* RoomView.swift in Sources */,
+				530A06E82BEDA72E004775D1 /* AllRoomsView.swift in Sources */,
 				53A591C12BE3B30000BBB034 /* InteractiveUpdatesView.swift in Sources */,
 				530C0BFB2BC044AB00FB4BDD /* MuseumBeaconApp.swift in Sources */,
 			);
@@ -475,6 +467,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0.3;
@@ -508,6 +501,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0.3;
