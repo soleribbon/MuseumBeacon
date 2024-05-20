@@ -29,6 +29,7 @@ struct InteractiveUpdatesView: View {
         Group {
             if detector.proximityDescription == "Searching..." {
                 SearchingView()
+                //default
             } else if let beacon = detector.lastKnownBeacon {
                 RoomView(beacon: beacon)
             } else {
