@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "junction.jpeg",
+      "filename" : "monaLisa.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "junction 1.jpeg",
+      "filename" : "monaLisa 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "junction 2.jpeg",
+      "filename" : "monaLisa 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

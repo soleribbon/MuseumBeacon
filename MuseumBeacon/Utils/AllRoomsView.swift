@@ -1,15 +1,7 @@
-//
-//  AllRoomsView.swift
-//  MuseumBeacon
-//
-//  Created by Ravi Heyne on 10/05/24.
-//
-
-import SwiftUI
-
 import SwiftUI
 
 struct AllRoomsView: View {
+    @State private var selectedBeacon: MuseumBeacon? = nil
 
     private let columns = [
         GridItem(.flexible(), spacing: 20),
@@ -17,9 +9,9 @@ struct AllRoomsView: View {
         GridItem(.flexible())
     ]
 
+    let impactMed = UIImpactFeedbackGenerator(style: .medium)
     var body: some View {
         ScrollView {
-
             HStack {
                 Text("All Rooms")
                     .font(.avenirNext(size: 28))
@@ -30,9 +22,7 @@ struct AllRoomsView: View {
                 Spacer()
             }
 
-
             LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
-
                 ForEach(BeaconSetup.beacons) { beacon in
                     ZStack {
                         Image(beacon.imageName)
@@ -57,22 +47,74 @@ struct AllRoomsView: View {
                             .background(Color.black.opacity(0.5))
                             .cornerRadius(10)
                             .accessibilityLabel(beacon.roomName)
-
                     }
                     .cornerRadius(10)
                     .clipped()
                     .aspectRatio(1, contentMode: .fit) // Ensure that the frame is square
+                    .onTapGesture {
+
+                        impactMed.impactOccurred()
+                        selectedBeacon = beacon
+                    }
                 }
             }
-
+        }
+        .sheet(item: $selectedBeacon) { beacon in
+            RoomDetailView(beacon: beacon)
         }
     }
 }
 
-// Preview for development convenience
+
+struct RoomDetailView: View {
+    let beacon: MuseumBeacon
+    @Environment(\.presentationMode) var presentationMode
+    let impactMed = UIImpactFeedbackGenerator(style: .rigid)
+    var body: some View {
+        VStack(spacing: 20) {
+            Image(beacon.imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 200)
+                .clipped()
+                .cornerRadius(10)
+                .shadow(radius: 10)
+
+            Text(beacon.roomName)
+                .font(.avenirNext(size: 24))
+                .bold()
+                .foregroundStyle(Color("wfpBlue"))
+
+            Text(beacon.artist)
+                .font(.avenirNextRegular(size: 20))
+                .foregroundColor(.gray)
+
+            Text(beacon.description)
+                .font(.avenirNextRegular(size: 18))
+                .foregroundColor(Color("wfpBlack"))
+                .lineSpacing(4)
+                .padding()
+
+            Spacer()
+            Button(action: {
+
+                impactMed.impactOccurred()
+                           presentationMode.wrappedValue.dismiss()
+                       }) {
+                           Text("Close")
+                               .font(.avenirNext(size: 18))
+                               .padding()
+                               .background(Color("wfpBlue"))
+                               .foregroundColor(.white)
+                               .cornerRadius(10)
+                       }
+        }
+        .padding()
+    }
+}
+
 struct AllRoomsView_Previews: PreviewProvider {
     static var previews: some View {
         AllRoomsView()
     }
 }
-

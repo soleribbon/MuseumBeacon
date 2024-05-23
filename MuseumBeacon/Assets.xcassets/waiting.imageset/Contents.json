@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "guernica.jpg",
+      "filename" : "guranica.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "guernica 1.jpg",
+      "filename" : "guranica 1.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "guernica 2.jpg",
+      "filename" : "guranica 2.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }
