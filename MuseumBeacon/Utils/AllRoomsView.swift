@@ -50,7 +50,7 @@ struct AllRoomsView: View {
                     }
                     .cornerRadius(10)
                     .clipped()
-                    .aspectRatio(1, contentMode: .fit) // Ensure that the frame is square
+                    .aspectRatio(1, contentMode: .fit)
                     .onTapGesture {
 
                         impactMed.impactOccurred()

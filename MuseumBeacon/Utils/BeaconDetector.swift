@@ -110,12 +110,13 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     // BeaconDetector.swift adjustments for speak function:
     func speak(_ text: String, ignoreVoiceOverCheck: Bool = false) {
-        
-        let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
-        speechSynthesizer.speak(utterance)
-        
+        // Ensure the speech synthesis is done on a high-priority queue
+        DispatchQueue.global(qos: .userInitiated).async {
+            let utterance = AVSpeechUtterance(string: text)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            utterance.rate = 0.5
+            self.speechSynthesizer.speak(utterance)
+        }
     }
     
     
