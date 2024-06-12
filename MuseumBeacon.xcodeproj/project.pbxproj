@@ -18,6 +18,8 @@
 		538AF68E2BEE643700DFE222 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538AF68D2BEE643700DFE222 /* LaunchScreen.storyboard */; };
 		53A591BD2BE2BFDD00BBB034 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A591BC2BE2BFDD00BBB034 /* Functions.swift */; };
 		53A591C12BE3B30000BBB034 /* InteractiveUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A591C02BE3B30000BBB034 /* InteractiveUpdatesView.swift */; };
+		53B485B22C19BA6300754C11 /* MainStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B485B12C19BA6300754C11 /* MainStartView.swift */; };
+		53B485B42C19CD7800754C11 /* FullFloorMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B485B32C19CD7800754C11 /* FullFloorMapView.swift */; };
 		53CE5C7F2BC05DA00019C740 /* BeaconDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CE5C7E2BC05DA00019C740 /* BeaconDetector.swift */; };
 		53EA03C52BC95C6A000E9BB3 /* BeaconSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EA03C42BC95C6A000E9BB3 /* BeaconSetup.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,8 @@
 		538AF68D2BEE643700DFE222 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53A591BC2BE2BFDD00BBB034 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		53A591C02BE3B30000BBB034 /* InteractiveUpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveUpdatesView.swift; sourceTree = "<group>"; };
+		53B485B12C19BA6300754C11 /* MainStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStartView.swift; sourceTree = "<group>"; };
+		53B485B32C19CD7800754C11 /* FullFloorMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFloorMapView.swift; sourceTree = "<group>"; };
 		53CE5C7E2BC05DA00019C740 /* BeaconDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetector.swift; sourceTree = "<group>"; };
 		53EA03C42BC95C6A000E9BB3 /* BeaconSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				530C0BFA2BC044AB00FB4BDD /* MuseumBeaconApp.swift */,
-				53A591C02BE3B30000BBB034 /* InteractiveUpdatesView.swift */,
+				53EC74EE2C1880F60008038B /* Views */,
 				53A591C82BE3CDFC00BBB034 /* Utils */,
 				530C0BFE2BC044AD00FB4BDD /* Assets.xcassets */,
 				538AF68D2BEE643700DFE222 /* LaunchScreen.storyboard */,
@@ -145,12 +149,22 @@
 			isa = PBXGroup;
 			children = (
 				53CE5C7E2BC05DA00019C740 /* BeaconDetector.swift */,
-				530A06E72BEDA72E004775D1 /* AllRoomsView.swift */,
-				538AF68B2BEE52EA00DFE222 /* RoomView.swift */,
 				53EA03C42BC95C6A000E9BB3 /* BeaconSetup.swift */,
 				53A591BC2BE2BFDD00BBB034 /* Functions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		53EC74EE2C1880F60008038B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53B485B12C19BA6300754C11 /* MainStartView.swift */,
+				53A591C02BE3B30000BBB034 /* InteractiveUpdatesView.swift */,
+				53B485B32C19CD7800754C11 /* FullFloorMapView.swift */,
+				530A06E72BEDA72E004775D1 /* AllRoomsView.swift */,
+				538AF68B2BEE52EA00DFE222 /* RoomView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,10 +302,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B485B42C19CD7800754C11 /* FullFloorMapView.swift in Sources */,
 				53EA03C52BC95C6A000E9BB3 /* BeaconSetup.swift in Sources */,
 				53CE5C7F2BC05DA00019C740 /* BeaconDetector.swift in Sources */,
 				53A591BD2BE2BFDD00BBB034 /* Functions.swift in Sources */,
 				538AF68C2BEE52EA00DFE222 /* RoomView.swift in Sources */,
+				53B485B22C19BA6300754C11 /* MainStartView.swift in Sources */,
 				530A06E82BEDA72E004775D1 /* AllRoomsView.swift in Sources */,
 				53A591C12BE3B30000BBB034 /* InteractiveUpdatesView.swift in Sources */,
 				530C0BFB2BC044AB00FB4BDD /* MuseumBeaconApp.swift in Sources */,

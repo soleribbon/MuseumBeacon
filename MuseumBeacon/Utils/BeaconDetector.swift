@@ -3,6 +3,7 @@ import CoreLocation
 import Combine
 import AVFoundation
 import UIKit
+import SwiftUI
 
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     
@@ -11,7 +12,6 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var locationManager: CLLocationManager?
     @Published var proximityDescription = "Searching..."
     @Published var lastKnownBeacon: MuseumBeacon?
-    @Published var showAlert = false
     @Published var potentialNewBeacon: MuseumBeacon?
     private var beaconSignals: [UUID: [Double]] = [:]
     private var beaconStability: [UUID: Int] = [:]
@@ -45,6 +45,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func startScanning() {
+        proximityDescription = "Searching..."
         guard let locationManager = locationManager, CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) else {
             proximityDescription = "Beacon monitoring not available."
             return
@@ -55,6 +56,26 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
             locationManager.startMonitoring(for: beaconRegion)
             locationManager.startRangingBeacons(satisfying: CLBeaconIdentityConstraint(uuid: beacon.id))
         }
+        print("STARTED SCANNING")
+    }
+    
+    func stopScanning() {
+        guard let locationManager = locationManager else { return }
+        
+        BeaconSetup.beacons.forEach { beacon in
+            let beaconRegion = CLBeaconRegion(uuid: beacon.id, identifier: beacon.identifier)
+            locationManager.stopMonitoring(for: beaconRegion)
+            locationManager.stopRangingBeacons(satisfying: CLBeaconIdentityConstraint(uuid: beacon.id))
+        }
+        
+        proximityDescription = "Scanning stopped."
+        lastKnownBeacon = nil
+        potentialNewBeacon = nil
+        beaconSignals.removeAll()
+        beaconStability.removeAll()
+        lastAnnouncedRoom = nil
+        print("STOPPED SCANNING")
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
@@ -84,8 +105,6 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         // Update only if user confirms the new closest beacon
         if foundNewClosest {
-            //RAVI TESTING - NIGHTTIME
-            //                showAlert = true
             confirmRoomChange()
         }
     }
@@ -95,10 +114,9 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
             DispatchQueue.main.async {
                 self.lastKnownBeacon = newBeacon
                 self.proximityDescription = "Close to: \(newBeacon.roomName)"
-                self.showAlert = false
                 self.potentialNewBeacon = nil
                 if self.lastAnnouncedRoom != newBeacon.id {
-                    self.speak("\(newBeacon.roomName) by \(newBeacon.artist). \(newBeacon.description)")
+                    self.speak("\(newBeacon.roomName).  \(newBeacon.description)")
                     
                     // Update the last announced room
                     self.lastAnnouncedRoom = newBeacon.id

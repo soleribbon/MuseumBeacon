@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "scream.jpeg",
+      "filename" : "reception.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "scream 1.jpeg",
+      "filename" : "reception@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "scream 2.jpeg",
+      "filename" : "reception@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

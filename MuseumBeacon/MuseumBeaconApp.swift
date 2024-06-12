@@ -11,7 +11,10 @@ import SwiftUI
 struct MuseumBeaconApp: App {
     var body: some Scene {
         WindowGroup {
-            InteractiveUpdatesView()
+//            InteractiveUpdatesView()
+//            RoomView(beacon: BeaconSetup.beacons[0])
+//                .previewDisplayName(BeaconSetup.beacons[0].roomName)
+            MainStartView()
         }
     }
 }

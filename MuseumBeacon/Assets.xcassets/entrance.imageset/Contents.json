@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "judgement.jpeg",
+      "filename" : "entrance.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "judgement 1.jpeg",
+      "filename" : "entrance@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "judgement 2.jpeg",
+      "filename" : "entrance@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
