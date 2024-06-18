@@ -20,7 +20,6 @@ struct InteractiveUpdatesView: View {
             contentView
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(white: 0.95))
         .ignoresSafeArea()
         .onAppear {
             detector.startScanning()
@@ -32,6 +31,7 @@ struct InteractiveUpdatesView: View {
     
     private var contentView: some View {
         Group {
+            
             if detector.proximityDescription == "Searching..." {
                 SearchingView()
                 //default
@@ -52,13 +52,25 @@ struct SearchingView: View {
     var body: some View {
         VStack {
             Spacer()
+            
+            HStack {
+                Image(systemName: "figure.walk")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40, height: 40)
+                    .foregroundStyle(Color("wfpBlue"))
+                    .opacity(0.5)
+                ProgressView()
+                    .controlSize(.large)
+                    .progressViewStyle(CircularProgressViewStyle(tint: Color("wfpBlue")))
+            }.accessibilityHidden(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
             Text("Searching for beacons...")
-                .font(.system(size: 17, weight: .regular, design: .default))
-                .foregroundColor(.gray)
+                .font(.avenirNext(size: 18))
+                .bold()
+                .foregroundColor(Color("wfpBlue"))
                 .padding()
-            ProgressView()
-                .controlSize(.large)
-                .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                .accessibilityAddTraits(.isHeader)
+
             Spacer()
             Button(action: {
                 impactRigid.impactOccurred()
@@ -91,10 +103,18 @@ struct NoRoomsFoundView: View {
         VStack {
             Spacer()
             Text("No rooms found")
-                .font(.title)
-                .foregroundColor(.gray)
+                .font(.avenirNext(size: 30))
+                .bold()
+                .foregroundColor(Color("wfpBlue"))
+                .opacity(0.5)
                 .accessibilityLabel("No rooms found")
                 .accessibilityHint("No beacons are detected nearby.")
+            Text("Please try again in a different area")
+                .font(.avenirNext(size: 18))
+                .foregroundColor(Color("wfpBlue"))
+                .opacity(0.5)
+                .accessibilityLabel("Please try again in a different area")
+                .accessibilityHint("Try again in a different area.")
             Spacer()
             Button(action: {
                 impactRigid.impactOccurred()
@@ -155,7 +175,13 @@ class BeaconDetectorMock: BeaconDetector {
             imageName: "entrance",
             description: "Welcome to the Headquarters of the World Food Programme.",
             moreInformation: "This area serves as the primary.",
-            subtitle: "Entrance Area"
+            subtitle: "Entrance Area",
+            nearbyRooms: [
+                "Reception": "SOUTH",
+                "Corridors": "WEST",
+                "Nobel": "NORTHWEST",
+                "Exit": "NORTHEAST"
+            ]
         )
         return mock
     }()

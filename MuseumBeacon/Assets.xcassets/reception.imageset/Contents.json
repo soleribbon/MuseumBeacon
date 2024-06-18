@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "reception.png",
+      "filename" : "information desk@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "reception@2x.png",
+      "filename" : "information desk@2x 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "reception@3x.png",
+      "filename" : "information desk@2x 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

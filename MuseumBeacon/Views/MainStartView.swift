@@ -18,7 +18,7 @@ struct MainStartView: View {
                     Image("WFPLogo")
                         .resizable()
                         .frame(width: 60, height: 60)
-                        .padding(.trailing, 10)
+                        .accessibilityHidden(true)
                     VStack(alignment: .leading) {
                         Text("World Food Programme")
                             .font(.avenirNextRegular(size: 16))
@@ -29,12 +29,22 @@ struct MainStartView: View {
                             .bold()
                             .foregroundStyle(Color("wfpBlue"))
                             .accessibilityAddTraits(.isHeader)
-                    }
+                    }.padding()
                 }
-                .padding()
+                .padding([.top, .horizontal])
+                Image("allWorld")
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(20)
+                    .accessibilityHidden(true)
 
                 List {
-                    Section(header: Text("Welcome!").foregroundStyle(.gray)) {
+                    Section(header: Text("Welcome")
+                        .font(.avenirNext(size: 24))
+                        .bold()
+                        .foregroundStyle(Color(red: 0.471, green: 0.475, blue: 0.529))
+
+                    ) {
                         Button(action: {
                             impactMed.impactOccurred()
                             showInteractiveUpdates = true
@@ -45,7 +55,7 @@ struct MainStartView: View {
                                     .scaledToFit()
                                     .frame(width: 40, height: 40)
                                     .foregroundStyle(Color("wfpBlue"))
-
+                                    .padding(.leading, 10)
                                 VStack(alignment: .leading) {
                                     Text("Automatic Guide Mode")
                                         .font(.avenirNext(size: 18))
@@ -56,8 +66,8 @@ struct MainStartView: View {
                                     Text("Points of interest are read out-loud, completely hands-free. Just start walking!")
                                         .font(.avenirNext(size: 14))
                                         .foregroundStyle(.gray)
-                                }
-                                .padding()
+                                }.padding()
+
                             }
                         }
                     }
@@ -71,6 +81,7 @@ struct MainStartView: View {
                                     .scaledToFit()
                                     .frame(width: 40, height: 40)
                                     .foregroundStyle(Color("wfpBlue"))
+                                    .padding(.leading, 10)
                                 VStack(alignment: .leading) {
                                     Text("All Points of Interest")
                                         .font(.avenirNext(size: 18))
@@ -92,6 +103,7 @@ struct MainStartView: View {
                                     .scaledToFit()
                                     .frame(width: 40, height: 40)
                                     .foregroundStyle(Color("wfpBlue"))
+                                    .padding(.leading, 10)
                                 VStack(alignment: .leading) {
                                     Text("Full Floor Map")
                                         .font(.avenirNext(size: 18))
@@ -105,17 +117,31 @@ struct MainStartView: View {
                                 .padding()
                             }
                         }
+
                     }
+                    Section {
+                        Text("Beta v0.01")
+                            .font(.avenirNext(size: 12))
+                            .foregroundStyle(.gray)
+                            .accessibilityHidden(true)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    .listRowBackground(Color.clear)
+
                 }
                 .listStyle(.insetGrouped)
                 .environment(\.horizontalSizeClass, .regular)
                 .navigationBarTitleDisplayMode(.inline)
+
             }
 
             .fullScreenCover(isPresented: $showInteractiveUpdates, content: InteractiveUpdatesView.init)
             .background(Color(UIColor.systemGroupedBackground))
         }
     }
+
+
+
 }
 
 

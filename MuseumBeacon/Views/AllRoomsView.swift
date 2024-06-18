@@ -3,6 +3,7 @@ import UIKit
 
 struct AllRoomsView: View {
     @State private var selectedBeacon: MuseumBeacon? = nil
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     private let columns = [
         GridItem(.flexible(), spacing: 20),
@@ -19,17 +20,19 @@ struct AllRoomsView: View {
         }
         .padding()
         .sheet(item: $selectedBeacon) { beacon in
-            RoomDetailView(beacon: beacon)
+            RoomDetailView(beacon: beacon)                .accessibilityAddTraits(.isModal)
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: backButton)
     }
     
     private var headerView: some View {
         HStack {
-            Text("All Rooms")
+            Text("All Points of Interest")
                 .font(.avenirNext(size: 28))
                 .bold()
                 .foregroundStyle(Color("wfpBlue"))
-                .accessibilityLabel("List of all rooms")
+                .accessibilityLabel("Below is a list of all points of interest. Select one to get more information.")
                 .padding(.vertical)
             Spacer()
         }
@@ -76,6 +79,29 @@ struct AllRoomsView: View {
         .clipped()
         .aspectRatio(1, contentMode: .fit)
     }
+
+    private var backButton : some View { Button(action: {
+        presentationMode.wrappedValue.dismiss()
+    }) {
+        HStack {
+            Image(systemName: "chevron.left")
+                .accessibilityHidden(true)
+                .font(.avenirNext(size: 18))
+                .bold()
+                .foregroundStyle(Color("wfpBlue"))
+                .accessibilityLabel("Go back to the main page")
+                .padding(.vertical)
+
+            Text("Back")
+                .font(.avenirNext(size: 18))
+                .bold()
+                .foregroundStyle(Color("wfpBlue"))
+                .accessibilityLabel("Go back to the main page")
+                .padding(.vertical)
+        }
+        .accessibilityElement(children: .combine)
+        }
+    }
 }
 
 struct RoomDetailView: View {
@@ -86,6 +112,7 @@ struct RoomDetailView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             headerImage
+                .frame(maxWidth: .infinity)
             ScrollView {
                 content
             }
@@ -97,11 +124,11 @@ struct RoomDetailView: View {
     private var headerImage: some View {
         Image(beacon.imageName)
             .resizable()
-            .scaledToFit()
-            .frame(height: 200)
+            .scaledToFill()
             .clipped()
             .cornerRadius(10)
-            .padding(.bottom)
+            .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
+            .accessibilityHidden(true)
     }
     
     private var content: some View {
@@ -155,11 +182,14 @@ struct RoomDetailView: View {
         }) {
             Text("Close")
                 .font(.avenirNext(size: 18))
+                .bold()
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(Color("wfpBlue"))
                 .foregroundColor(.white)
-                .cornerRadius(10)
+                .cornerRadius(8)
+                .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
+                .accessibilityLabel("Close Point of Interest Information Modal")
         }
         .padding(.horizontal, 24)
         .padding(.top, 16.0)

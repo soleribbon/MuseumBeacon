@@ -9,12 +9,65 @@ import SwiftUI
 
 struct FullFloorMapView: View {
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    
     var body: some View {
-        ZoomableScrollView {
-            Image("fullFloorMap")
+        VStack {
+            headerView
+                .padding(.horizontal)
+                .padding(.top)
+            ZoomableScrollView {
+                Image("fullFloorMap")
+                    .resizable()
+                    .scaledToFit()
+                    .background(.white)
+            }
+            
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: backButton)
+        
+    }
+    
+    
+    private var headerView: some View {
+        HStack {
+            Text("Level 1 Map | HQ")
+                .font(.avenirNext(size: 28))
+                .bold()
+                .foregroundStyle(Color("wfpBlue"))
+                .accessibilityLabel("Image of Level 1 Map")
+                .padding(.vertical)
+            Spacer()
         }
     }
+    
+    private var backButton : some View { Button(action: {
+        presentationMode.wrappedValue.dismiss()
+    }) {
+        HStack {
+            Image(systemName: "chevron.left")
+                .accessibilityHidden(true)
+                .font(.avenirNext(size: 18))
+                .bold()
+                .foregroundStyle(Color("wfpBlue"))
+                .accessibilityLabel("Go back to the main page")
+                .padding(.vertical)
+            
+            Text("Back")
+                .font(.avenirNext(size: 18))
+                .bold()
+                .foregroundStyle(Color("wfpBlue"))
+                .accessibilityLabel("Go back to the main page")
+                .padding(.vertical)
+        }
+        .accessibilityElement(children: .combine)
+    }
+        
+    }
 }
+
 struct ZoomableScrollView<Content: View>: UIViewRepresentable {
     private var content: Content
     
@@ -24,11 +77,10 @@ struct ZoomableScrollView<Content: View>: UIViewRepresentable {
     
     func makeUIView(context: Context) -> UIScrollView {
         let scrollView = UIScrollView()
-        scrollView.delegate = context.coordinator  // for viewForZooming(in:)
+        scrollView.delegate = context.coordinator
         scrollView.maximumZoomScale = 20
         scrollView.minimumZoomScale = 1
         scrollView.bouncesZoom = true
-        
         
         let hostedView = context.coordinator.hostingController.view!
         hostedView.translatesAutoresizingMaskIntoConstraints = true
@@ -48,7 +100,6 @@ struct ZoomableScrollView<Content: View>: UIViewRepresentable {
         assert(context.coordinator.hostingController.view.superview == uiView)
     }
     
-    
     class Coordinator: NSObject, UIScrollViewDelegate {
         var hostingController: UIHostingController<Content>
         
@@ -62,10 +113,8 @@ struct ZoomableScrollView<Content: View>: UIViewRepresentable {
     }
 }
 
-
 struct FullFloorMapView_Previews: PreviewProvider {
     static var previews: some View {
         FullFloorMapView()
-            .previewDevice("iPhone 15 Pro")
     }
 }
