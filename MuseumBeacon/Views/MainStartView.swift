@@ -14,24 +14,8 @@ struct MainStartView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
-                HStack(alignment: .center) {
-                    Image("WFPLogo")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .accessibilityHidden(true)
-                    VStack(alignment: .leading) {
-                        Text("World Food Programme")
-                            .font(.avenirNextRegular(size: 16))
-                            .foregroundStyle(Color("wfpBlue"))
-                            .accessibilityAddTraits(.isHeader)
-                        Text("Rome HQ Guide")
-                            .font(.avenirNext(size: 28))
-                            .bold()
-                            .foregroundStyle(Color("wfpBlue"))
-                            .accessibilityAddTraits(.isHeader)
-                    }.padding()
-                }
-                .padding([.top, .horizontal])
+                headerView
+                    .padding([.top, .horizontal])
                 Image("allWorld")
                     .resizable()
                     .scaledToFit()
@@ -140,8 +124,25 @@ struct MainStartView: View {
         }
     }
 
-
-
+    private var headerView: some View {
+        HStack(alignment: .center) {
+            Image("WFPLogo")
+                .resizable()
+                .frame(width: 60, height: 60)
+                .accessibilityHidden(true)
+            VStack(alignment: .leading) {
+                Text("World Food Programme")
+                    .font(.avenirNextRegular(size: 16))
+                    .foregroundStyle(Color("wfpBlue"))
+                    .accessibilityAddTraits(.isHeader)
+                Text("Rome HQ Guide")
+                    .font(.avenirNext(size: 28))
+                    .bold()
+                    .foregroundStyle(Color("wfpBlue"))
+                    .accessibilityAddTraits(.isHeader)
+            }.padding()
+        }
+    }
 }
 
 

@@ -229,7 +229,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     
-    //RETURNS DIRECTION IN WORD FORM
+    //RETURNS DIRECTION IN WORD FORM FOR SUBTITLE
     func compassDirection(from heading: Int) -> String {
         switch heading {
         case 0..<23, 338..<360:

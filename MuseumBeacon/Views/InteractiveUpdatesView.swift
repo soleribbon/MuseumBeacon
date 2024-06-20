@@ -70,7 +70,7 @@ struct SearchingView: View {
                 .foregroundColor(Color("wfpBlue"))
                 .padding()
                 .accessibilityAddTraits(.isHeader)
-
+            
             Spacer()
             Button(action: {
                 impactRigid.impactOccurred()

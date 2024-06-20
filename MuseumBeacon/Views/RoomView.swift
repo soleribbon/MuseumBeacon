@@ -30,17 +30,17 @@ struct RoomView: View {
                     VStack (alignment: .leading, spacing: 10){
                         VStack (alignment: .leading, spacing: 8){
                             VStack (alignment: .leading, spacing: 0){
-                                //  Text(beacon.subtitle)
-                                //                              .font(.avenirNextRegular(size: 16))
-                                //                                .foregroundColor(.gray)
-                                //                               .accessibilityAddTraits(.isHeader)
+//                                Text(beacon.subtitle)
+//                                    .font(.avenirNextRegular(size: 16))
+//                                    .foregroundColor(.gray)
+//                                    .accessibilityAddTraits(.isHeader)
                                 Text(beaconDetector.currentDirection)
                                     .font(.avenirNextRegular(size: 16))
                                     .foregroundColor(.gray)
                                     .accessibilityAddTraits(.isHeader)
                                     .accessibilityElement(children: .ignore)
                                     .accessibilityLabel(beaconDetector.currentDirection)
-
+                                
                                 Text(beacon.roomName)
                                     .font(.avenirNext(size: 28))
                                     .bold()
@@ -56,6 +56,8 @@ struct RoomView: View {
                                 .lineSpacing(4)
                                 .accessibilityAddTraits(.isHeader)
                             Spacer()
+                            
+                            
                             
                             if !beacon.nearbyRooms.isEmpty {
                                 VStack(alignment: .leading, spacing: 8) {
@@ -76,7 +78,30 @@ struct RoomView: View {
                                             
                                         }.accessibilityHidden(true)
                                     }
-                                }.accessibilityElement(children: .combine)
+                                }
+                                
+                            }
+                            Spacer()
+                            
+                            if let suggestedPaths = beacon.suggestedPaths, !suggestedPaths.isEmpty {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    Text("SUGGESTED")
+                                        .lineLimit(nil)
+                                        .font(.avenirNextRegular(size: 18))
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(Color("wfpBlue"))
+                                        .accessibilityAddTraits(.isHeader)
+                                        .accessibilityLabel("Suggested Destinations")
+                                    
+                                    ForEach(Array(suggestedPaths.keys.sorted().chunked(into: 2)), id: \.self) { chunk in
+                                        HStack(alignment: .top, spacing: 20) {
+                                            ForEach(chunk, id: \.self) { destination in
+                                                SuggestedPathView(destination: destination, steps: suggestedPaths[destination]!)
+                                            }
+                                        }
+                                    }
+                                }
+                                
                             }
                             
                         }
@@ -153,7 +178,7 @@ struct RoomView: View {
         let directions = beaconDetector.determineRelativeDirections(for: beacon)
         for (room, degrees) in directions {
             let direction = directionFromDegrees(degrees)
-            label += "\(room) is to the \(direction). "
+            label += "\(room) at \(direction). "
         }
         return label
     }
@@ -161,30 +186,33 @@ struct RoomView: View {
     private func directionFromDegrees(_ degrees: Double) -> String {
         switch degrees {
         case 0..<23, 338..<360:
-            return "NORTH"
+            return "12 o'clock" //NORTH
         case 23..<68:
-            return "NORTHEAST"
+            return "1 to 2 o'clock" //NORTHEAST
         case 68..<113:
-            return "EAST"
+            return "3 o'clock" //EAST
         case 113..<158:
-            return "SOUTHEAST"
+            return "4 to 5 o'clock"//SOUTHEAST
         case 158..<203:
-            return "SOUTH"
+            return "6 o'clock" //SOUTH
         case 203..<248:
-            return "SOUTHWEST"
+            return "7 to 8 o'clock" //SOUTHWEST
         case 248..<293:
-            return "WEST"
+            return "9 o'clock" //WEST
         case 293..<338:
-            return "NORTHWEST"
+            return "10 to 11 o'clock" //NORTHWEST
         default:
             return "unknown"
         }
     }
 }
+
+
 struct RoomView_Previews: PreviewProvider {
     static var previews: some View {
         RoomView(beacon: BeaconSetup.beacons[0])
             .previewDisplayName(BeaconSetup.beacons[0].roomName)
     }
 }
+
 

@@ -79,7 +79,7 @@ struct AllRoomsView: View {
         .clipped()
         .aspectRatio(1, contentMode: .fit)
     }
-
+    
     private var backButton : some View { Button(action: {
         presentationMode.wrappedValue.dismiss()
     }) {
@@ -91,7 +91,7 @@ struct AllRoomsView: View {
                 .foregroundStyle(Color("wfpBlue"))
                 .accessibilityLabel("Go back to the main page")
                 .padding(.vertical)
-
+            
             Text("Back")
                 .font(.avenirNext(size: 18))
                 .bold()
@@ -100,7 +100,7 @@ struct AllRoomsView: View {
                 .padding(.vertical)
         }
         .accessibilityElement(children: .combine)
-        }
+    }
     }
 }
 

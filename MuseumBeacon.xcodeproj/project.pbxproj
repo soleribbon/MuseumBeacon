@@ -16,6 +16,7 @@
 		530C0C182BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0C172BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift */; };
 		532978B32C1C78D400EB87EC /* BeaconDetectorExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532978B22C1C78D400EB87EC /* BeaconDetectorExp.swift */; };
 		536132402C21BA65000FD126 /* DirectionArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5361323F2C21BA65000FD126 /* DirectionArrowView.swift */; };
+		536132422C22E4AB000FD126 /* SuggestedPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536132412C22E4AB000FD126 /* SuggestedPathView.swift */; };
 		538AF68C2BEE52EA00DFE222 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AF68B2BEE52EA00DFE222 /* RoomView.swift */; };
 		538AF68E2BEE643700DFE222 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538AF68D2BEE643700DFE222 /* LaunchScreen.storyboard */; };
 		53A591BD2BE2BFDD00BBB034 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A591BC2BE2BFDD00BBB034 /* Functions.swift */; };
@@ -56,6 +57,7 @@
 		530C0C172BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumBeaconUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		532978B22C1C78D400EB87EC /* BeaconDetectorExp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconDetectorExp.swift; sourceTree = "<group>"; };
 		5361323F2C21BA65000FD126 /* DirectionArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionArrowView.swift; sourceTree = "<group>"; };
+		536132412C22E4AB000FD126 /* SuggestedPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedPathView.swift; sourceTree = "<group>"; };
 		538AF68B2BEE52EA00DFE222 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		538AF68D2BEE643700DFE222 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53A591BC2BE2BFDD00BBB034 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				53B485B32C19CD7800754C11 /* FullFloorMapView.swift */,
 				530A06E72BEDA72E004775D1 /* AllRoomsView.swift */,
 				538AF68B2BEE52EA00DFE222 /* RoomView.swift */,
+				536132412C22E4AB000FD126 /* SuggestedPathView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				53CE5C7F2BC05DA00019C740 /* BeaconDetector.swift in Sources */,
 				532978B32C1C78D400EB87EC /* BeaconDetectorExp.swift in Sources */,
 				53A591BD2BE2BFDD00BBB034 /* Functions.swift in Sources */,
+				536132422C22E4AB000FD126 /* SuggestedPathView.swift in Sources */,
 				538AF68C2BEE52EA00DFE222 /* RoomView.swift in Sources */,
 				53B485B22C19BA6300754C11 /* MainStartView.swift in Sources */,
 				536132402C21BA65000FD126 /* DirectionArrowView.swift in Sources */,
