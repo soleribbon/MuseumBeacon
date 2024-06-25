@@ -104,7 +104,7 @@ struct MainStartView: View {
 
                     }
                     Section {
-                        Text("Beta v0.03")
+                        Text("Beta v0.55")
                             .font(.avenirNext(size: 12))
                             .foregroundStyle(.gray)
                             .accessibilityHidden(true)

@@ -22,6 +22,7 @@ struct InteractiveUpdatesView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .onAppear {
+            //RAVI
             detector.startScanning()
         }
         .onDisappear {

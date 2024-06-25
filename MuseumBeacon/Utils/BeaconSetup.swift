@@ -22,6 +22,60 @@ struct MuseumBeacon: Identifiable, Hashable {
 struct BeaconSetup {
     static let beacons: [MuseumBeacon] = [
 
+        //TESTS (3)
+//        createMuseumBeacon(
+//            uuidString: "A672E202-A268-4A81-AA5E-58C726A0E3AC",
+//            identifier: "Beacon1",
+//            roomName: "Main Lobby",
+//            imageName: "entrance",
+//            description: "Welcome to the Headquarters of the World Food Programme. This is the Main Lobby. On your left, the Information desk. On the right, the Nobel Prize Medal and Certificate. In front of you, the corridor that leads you to the Auditorium.",
+//            moreInformation: "This area serves as the primary entrance to WFP headquarters, including a Nobel Prize Medal exhibition.",
+//            subtitle: "Entrance Area",
+//            nearbyRooms: [
+//                "Reception Area": "SOUTH",
+//                "Corridors Junction": "WEST",
+//                "Nobel Peace Prize": "NORTHWEST",
+//                "Exit": "NORTHEAST"
+//            ],
+//            suggestedPaths: [
+//                "Auditorium": ["Main Lobby", "Reception Area", "Corridors Junction", "Auditorium Corridor", "Auditorium"],
+//                "Nobel Prize": ["Main Lobby", "Reception Area", "Corridors Junction", "Nobel Peace Prize"],
+//            ]
+//        ),
+//        createMuseumBeacon(
+//            uuidString: "B803D06E-35D8-4731-A16C-55C660182DD4",
+//            identifier: "Beacon2",
+//            roomName: "Reception Area",
+//            imageName: "reception",
+//            description: "You have reached the Information and Registration Desk.",
+//            subtitle: "Check In",
+//            nearbyRooms: [
+//                "Exit": "NORTHEAST",
+//                "Nobel Peace Prize": "NORTH",
+//                "Corridors Junction": "WEST"
+//            ],
+//            suggestedPaths: [
+//                "Auditorium": ["Corridors Junction", "Auditorium Corridor"]
+//        
+//            ]
+//        ),
+//        
+//        createMuseumBeacon(
+//            uuidString: "104AF95D-B094-4BE2-BC7F-9417F5372347",
+//            identifier: "Beacon4",
+//            roomName: "Nobel Prize",
+//            imageName: "nobelPrizeArea",
+//            description: "You are in a standing area to the right of the entrance doors. This area includes the World Food Programme's Nobel Prize.",
+//            moreInformation: "In 2020, the Nobel Peace Prize was awarded to the World Food Programme (WFP) for its efforts to combat hunger and improve conditions for peace in conflict-affected areas. The Nobel Committee recognized the WFP for its crucial role in addressing food insecurity, which is exacerbated by war and conflict, and for its contribution to the prevention of hunger being used as a weapon of war and conflict. The award highlighted the importance of food security in promoting peace and stability, particularly in regions suffering from protracted crises. The WFP's efforts have saved countless lives and underscored the need for global solidarity in tackling hunger and fostering peace.",
+//            subtitle: "Award Area",
+//            nearbyRooms: [
+//                "Exit": "EAST",
+//                "Reception Area": "SOUTHEAST",
+//            ],
+//            suggestedPaths: nil
+//        ),
+
+
         //below are REAL
         createMuseumBeacon(
             uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647822",
