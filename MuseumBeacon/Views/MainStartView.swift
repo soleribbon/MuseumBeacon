@@ -58,7 +58,7 @@ struct MainStartView: View {
                     .headerProminence(.increased)
 
                     Section {
-                        NavigationLink(destination: AllRoomsView()) {
+                        NavigationLink(destination: AllRoomsView(source: "MainStartView")) {
                             HStack {
                                 Image(systemName: "point.3.filled.connected.trianglepath.dotted")
                                     .resizable()
@@ -104,7 +104,7 @@ struct MainStartView: View {
 
                     }
                     Section {
-                        Text("Beta v0.01")
+                        Text("Beta v0.03")
                             .font(.avenirNext(size: 12))
                             .foregroundStyle(.gray)
                             .accessibilityHidden(true)

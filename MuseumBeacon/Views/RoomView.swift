@@ -30,10 +30,10 @@ struct RoomView: View {
                     VStack (alignment: .leading, spacing: 10){
                         VStack (alignment: .leading, spacing: 8){
                             VStack (alignment: .leading, spacing: 0){
-//                                Text(beacon.subtitle)
-//                                    .font(.avenirNextRegular(size: 16))
-//                                    .foregroundColor(.gray)
-//                                    .accessibilityAddTraits(.isHeader)
+                                //                                Text(beacon.subtitle)
+                                //                                    .font(.avenirNextRegular(size: 16))
+                                //                                    .foregroundColor(.gray)
+                                //                                    .accessibilityAddTraits(.isHeader)
                                 Text(beaconDetector.currentDirection)
                                     .font(.avenirNextRegular(size: 16))
                                     .foregroundColor(.gray)
@@ -133,7 +133,7 @@ struct RoomView: View {
                 }
                 .edgesIgnoringSafeArea(.all)
                 
-                NavigationLink(destination: AllRoomsView()) {
+                NavigationLink(destination: AllRoomsView(source: "GuideMode")) {
                     Text("View All Points of Interest")
                         .font(.avenirNext(size: 18))
                         .bold()

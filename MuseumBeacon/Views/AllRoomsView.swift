@@ -2,7 +2,6 @@ import SwiftUI
 import UIKit
 
 struct AllRoomsView: View {
-    @State private var selectedBeacon: MuseumBeacon? = nil
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     private let columns = [
@@ -13,17 +12,19 @@ struct AllRoomsView: View {
     
     let impactMed = UIImpactFeedbackGenerator(style: .medium)
     
+    let source: String
+    
     var body: some View {
-        ScrollView {
-            headerView
-            beaconGrid
+        VStack {
+            ScrollView {
+                headerView
+                beaconGrid
+            }
+            .padding()
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: backButton)
         }
-        .padding()
-        .sheet(item: $selectedBeacon) { beacon in
-            RoomDetailView(beacon: beacon)                .accessibilityAddTraits(.isModal)
-        }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: backButton)
+        
     }
     
     private var headerView: some View {
@@ -41,11 +42,10 @@ struct AllRoomsView: View {
     private var beaconGrid: some View {
         LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
             ForEach(BeaconSetup.beacons) { beacon in
-                beaconItem(beacon)
-                    .onTapGesture {
-                        impactMed.impactOccurred()
-                        selectedBeacon = beacon
-                    }
+                NavigationLink(destination: RoomDetailView(beacon: beacon, source: source)) {
+                    beaconItem(beacon)
+                    
+                }
             }
         }
     }
@@ -80,34 +80,36 @@ struct AllRoomsView: View {
         .aspectRatio(1, contentMode: .fit)
     }
     
-    private var backButton : some View { Button(action: {
-        presentationMode.wrappedValue.dismiss()
-    }) {
-        HStack {
-            Image(systemName: "chevron.left")
-                .accessibilityHidden(true)
-                .font(.avenirNext(size: 18))
-                .bold()
-                .foregroundStyle(Color("wfpBlue"))
-                .accessibilityLabel("Go back to the main page")
-                .padding(.vertical)
-            
-            Text("Back")
-                .font(.avenirNext(size: 18))
-                .bold()
-                .foregroundStyle(Color("wfpBlue"))
-                .accessibilityLabel("Go back to the main page")
-                .padding(.vertical)
+    var backButton: some View {
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            HStack {
+                Image(systemName: "chevron.left")
+                    .accessibilityHidden(true)
+                    .font(.avenirNext(size: 18))
+                    .bold()
+                    .foregroundStyle(Color("wfpBlue"))
+                    .accessibilityLabel("Go back to the main page")
+                    .padding(.vertical)
+                
+                Text("Back")
+                    .font(.avenirNext(size: 18))
+                    .bold()
+                    .foregroundStyle(Color("wfpBlue"))
+                    .accessibilityLabel("Go back to the main page")
+                    .padding(.vertical)
+            }
+            .accessibilityElement(children: .combine)
         }
-        .accessibilityElement(children: .combine)
-    }
     }
 }
-
 struct RoomDetailView: View {
     let beacon: MuseumBeacon
+    let source: String
     @Environment(\.presentationMode) var presentationMode
     let impactRigid = UIImpactFeedbackGenerator(style: .rigid)
+    @State private var showInteractiveUpdates = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -116,9 +118,38 @@ struct RoomDetailView: View {
             ScrollView {
                 content
             }
-            closeButton
+            if source == "MainStartView" {
+                startGuideButton
+            }
         }
         .padding()
+        .fullScreenCover(isPresented: $showInteractiveUpdates, content: InteractiveUpdatesView.init)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: backButton)
+    }
+    
+    private var backButton: some View {
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            HStack {
+                Image(systemName: "chevron.left")
+                    .accessibilityHidden(true)
+                    .font(.avenirNext(size: 18))
+                    .bold()
+                    .foregroundStyle(Color("wfpBlue"))
+                    .accessibilityLabel("Go back to All Points of Interest")
+                    .padding(.vertical)
+                
+                Text("Back")
+                    .font(.avenirNext(size: 18))
+                    .bold()
+                    .foregroundStyle(Color("wfpBlue"))
+                    .accessibilityLabel("Go back to All Points of Interest")
+                    .padding(.vertical)
+            }
+            .accessibilityElement(children: .combine)
+        }
     }
     
     private var headerImage: some View {
@@ -133,7 +164,7 @@ struct RoomDetailView: View {
     
     private var content: some View {
         VStack(alignment: .leading, spacing: 10) {
-            VStack (alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
                 Text(beacon.subtitle)
                     .font(.avenirNextRegular(size: 16))
                     .foregroundColor(.gray)
@@ -144,9 +175,7 @@ struct RoomDetailView: View {
                     .bold()
                     .foregroundStyle(Color("wfpBlue"))
                     .accessibilityAddTraits(.isHeader)
-                
             }
-            
             
             Text(beacon.description)
                 .font(.avenirNextRegular(size: 18))
@@ -155,7 +184,6 @@ struct RoomDetailView: View {
                 .lineSpacing(4)
                 .accessibilityAddTraits(.isHeader)
                 .padding(.bottom, 20)
-            
             
             if let moreInformation = beacon.moreInformation, !moreInformation.isEmpty {
                 Text("MORE INFORMATION")
@@ -175,12 +203,12 @@ struct RoomDetailView: View {
         .padding(.top, 16.0)
     }
     
-    private var closeButton: some View {
+    private var startGuideButton: some View {
         Button(action: {
             impactRigid.impactOccurred()
-            presentationMode.wrappedValue.dismiss()
+            showInteractiveUpdates = true
         }) {
-            Text("Close")
+            Text("Start Guide Mode")
                 .font(.avenirNext(size: 18))
                 .bold()
                 .padding()
@@ -189,15 +217,14 @@ struct RoomDetailView: View {
                 .foregroundColor(.white)
                 .cornerRadius(8)
                 .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
-                .accessibilityLabel("Close Point of Interest Information Modal")
+                .accessibilityLabel("Start Guide Mode")
         }
         .padding(.horizontal, 24)
         .padding(.top, 16.0)
     }
 }
-
 struct AllRoomsView_Previews: PreviewProvider {
     static var previews: some View {
-        AllRoomsView()
+        AllRoomsView(source: "MainStartView")
     }
 }

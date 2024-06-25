@@ -21,6 +21,7 @@ struct MuseumBeacon: Identifiable, Hashable {
 
 struct BeaconSetup {
     static let beacons: [MuseumBeacon] = [
+
         //below are REAL
         createMuseumBeacon(
             uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647822",
@@ -41,8 +42,8 @@ struct BeaconSetup {
                 "Nobel Prize": ["Main Lobby", "Reception Area", "Corridors Junction", "Nobel Peace Prize"],
             ]
         ),
-        
-        
+
+
         createMuseumBeacon(
             uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647823",
             identifier: "Beacon2",
@@ -77,7 +78,7 @@ struct BeaconSetup {
                 "Nobel Prize": ["Auditorium Corridor", "Corridors Junction", "Reception Area", "Main Lobby", "Nobel Prize"]
             ]
         ),
-        
+
         createMuseumBeacon(
             uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647825",
             identifier: "Beacon4",
@@ -94,7 +95,7 @@ struct BeaconSetup {
                 "Auditorium": ["Nobel Prize Area", "Main Lobby", "Reception Area", "Corridors Junction", "Auditorium Corridor", "Auditorium"]
             ]
         ),
-        
+
         createMuseumBeacon(
             uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647826",
             identifier: "Beacon5",
@@ -112,10 +113,10 @@ struct BeaconSetup {
                 "Auditorium": ["Corridors Junction", "Auditorium Corridor", "Auditorium"]
             ]
         )
-        
-        
+
+
     ].compactMap { $0 }
-    
+
     private static func createMuseumBeacon(uuidString: String, identifier: String, roomName: String, imageName: String, description: String, moreInformation: String? = nil, subtitle: String, nearbyRooms: [String: String], suggestedPaths: [String: [String]]? = nil) -> MuseumBeacon? {
         guard let uuid = UUID(uuidString: uuidString) else {
             print("Error: Invalid UUID string provided for \(identifier) with room \(roomName)")
