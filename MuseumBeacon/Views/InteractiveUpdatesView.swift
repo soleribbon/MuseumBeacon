@@ -172,16 +172,20 @@ class BeaconDetectorMock: BeaconDetector {
         mock.lastKnownBeacon = MuseumBeacon(
             id: UUID(uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647822")!,
             identifier: "Beacon1",
-            roomName: "Main Lobby",
-            imageName: "entrance",
-            description: "Welcome to the Headquarters of the World Food Programme.",
+            roomName: "Auditorium Entrance",
+            imageName: "auditoriumEntrance",
+            description: "You are at the entrance to the auditorium.",
             moreInformation: "This area serves as the primary.",
-            subtitle: "Entrance Area",
+            subtitle: "Auditorium Area",
             nearbyRooms: [
                 "Reception": "SOUTH",
-                "Corridors": "WEST",
+                "Auditorium Corridor": "NORTH",
                 "Nobel": "NORTHWEST",
                 "Exit": "NORTHEAST"
+            ],
+            suggestedPaths: [
+                "Reception Desk": ["Auditorium Entrance", "Auditorium Corridor", "Corridors Junction", "Reception Desk"],
+                "Exit": ["Auditorium Entrance", "Auditorium Corridor", "Corridors Junction", "Reception Desk", "Exit"],
             ]
         )
         return mock

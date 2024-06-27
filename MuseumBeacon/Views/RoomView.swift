@@ -94,7 +94,7 @@ struct RoomView: View {
                                         .accessibilityLabel("Suggested Destinations")
                                     
                                     ForEach(Array(suggestedPaths.keys.sorted().chunked(into: 2)), id: \.self) { chunk in
-                                        HStack(alignment: .top, spacing: 20) {
+                                        HStack(alignment: .top, spacing: 10) {
                                             ForEach(chunk, id: \.self) { destination in
                                                 SuggestedPathView(destination: destination, steps: suggestedPaths[destination]!)
                                             }

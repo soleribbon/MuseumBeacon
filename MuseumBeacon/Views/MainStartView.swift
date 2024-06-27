@@ -10,7 +10,7 @@ import SwiftUI
 struct MainStartView: View {
     @State private var showInteractiveUpdates = false
     let impactMed = UIImpactFeedbackGenerator(style: .medium)
-
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
@@ -21,13 +21,13 @@ struct MainStartView: View {
                     .scaledToFit()
                     .cornerRadius(20)
                     .accessibilityHidden(true)
-
+                
                 List {
                     Section(header: Text("Welcome")
                         .font(.avenirNext(size: 24))
                         .bold()
                         .foregroundStyle(Color(red: 0.471, green: 0.475, blue: 0.529))
-
+                            
                     ) {
                         Button(action: {
                             impactMed.impactOccurred()
@@ -46,17 +46,17 @@ struct MainStartView: View {
                                         .fontWeight(.semibold)
                                         .foregroundStyle(Color("wfpBlack"))
                                         .accessibilityAddTraits(.isHeader)
-
+                                    
                                     Text("Points of interest are read out-loud, completely hands-free. Just start walking!")
                                         .font(.avenirNext(size: 14))
                                         .foregroundStyle(.gray)
                                 }.padding()
-
+                                
                             }
                         }
                     }
                     .headerProminence(.increased)
-
+                    
                     Section {
                         NavigationLink(destination: AllRoomsView(source: "MainStartView")) {
                             HStack {
@@ -79,7 +79,7 @@ struct MainStartView: View {
                                 .padding()
                             }
                         }
-
+                        
                         NavigationLink(destination: FullFloorMapView()) {
                             HStack {
                                 Image(systemName: "map.fill")
@@ -101,29 +101,29 @@ struct MainStartView: View {
                                 .padding()
                             }
                         }
-
+                        
                     }
                     Section {
-                        Text("Beta v0.55")
+                        Text("Beta v0.65")
                             .font(.avenirNext(size: 12))
                             .foregroundStyle(.gray)
                             .accessibilityHidden(true)
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
                     .listRowBackground(Color.clear)
-
+                    
                 }
                 .listStyle(.insetGrouped)
                 .environment(\.horizontalSizeClass, .regular)
                 .navigationBarTitleDisplayMode(.inline)
-
+                
             }
-
+            
             .fullScreenCover(isPresented: $showInteractiveUpdates, content: InteractiveUpdatesView.init)
             .background(Color(UIColor.systemGroupedBackground))
         }
     }
-
+    
     private var headerView: some View {
         HStack(alignment: .center) {
             Image("WFPLogo")

@@ -10,7 +10,7 @@ import SwiftUI
 struct SuggestedPathView: View {
     let destination: String
     let steps: [String]
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("To \(destination)")
@@ -44,12 +44,12 @@ struct SuggestedPathView: View {
                 }
             }
             .padding(.leading, 4)
-            
+
         }
         .accessibilityElement(children: .combine)
         .accessibilityLabel(suggestedPathAccessibilityLabel())
     }
-    
+
     private func suggestedPathAccessibilityLabel() -> String {
         var label = "Path to \(destination): Go to the "
         for step in steps {
@@ -72,7 +72,7 @@ extension Array {
 
 struct SuggestedPathView_Previews: PreviewProvider {
     static var previews: some View {
-        SuggestedPathView(destination: "Auditorium", steps: ["Reception Area", "Corridors Junction", "Auditorium Corridor"])
+        SuggestedPathView(destination: "Auditorium", steps: ["Your Position", "Corridors Junction", "Auditorium Corridor"])
             .previewLayout(.sizeThatFits)
             .padding()
     }
