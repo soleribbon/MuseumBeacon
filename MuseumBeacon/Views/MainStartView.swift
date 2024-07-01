@@ -58,6 +58,30 @@ struct MainStartView: View {
                     .headerProminence(.increased)
                     
                     Section {
+
+                        NavigationLink(destination: DailyCalendarView()) {
+                            HStack {
+                                Image(systemName: "calendar")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
+                                    .foregroundStyle(Color("wfpBlue"))
+                                    .padding(.leading, 10)
+                                VStack(alignment: .leading) {
+                                    Text("Daily Calendar")
+                                        .font(.avenirNext(size: 18))
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(Color("wfpBlack"))
+                                        .accessibilityAddTraits(.isHeader)
+                                    Text("Discover all events in a timeline hour by hour.")
+                                        .font(.avenirNext(size: 14))
+                                        .foregroundStyle(.gray)
+                                }
+                                .padding()
+                            }
+                        }
+
+
                         NavigationLink(destination: AllRoomsView(source: "MainStartView")) {
                             HStack {
                                 Image(systemName: "point.3.filled.connected.trianglepath.dotted")
@@ -79,7 +103,7 @@ struct MainStartView: View {
                                 .padding()
                             }
                         }
-                        
+
                         NavigationLink(destination: FullFloorMapView()) {
                             HStack {
                                 Image(systemName: "map.fill")

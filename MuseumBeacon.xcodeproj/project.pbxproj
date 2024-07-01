@@ -18,6 +18,7 @@
 		536132422C22E4AB000FD126 /* SuggestedPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536132412C22E4AB000FD126 /* SuggestedPathView.swift */; };
 		538AF68C2BEE52EA00DFE222 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AF68B2BEE52EA00DFE222 /* RoomView.swift */; };
 		538AF68E2BEE643700DFE222 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538AF68D2BEE643700DFE222 /* LaunchScreen.storyboard */; };
+		5391D8E52C32974C0015A6FD /* DailyCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391D8E42C32974C0015A6FD /* DailyCalendarView.swift */; };
 		53A591BD2BE2BFDD00BBB034 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A591BC2BE2BFDD00BBB034 /* Functions.swift */; };
 		53A591C12BE3B30000BBB034 /* InteractiveUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A591C02BE3B30000BBB034 /* InteractiveUpdatesView.swift */; };
 		53B485B22C19BA6300754C11 /* MainStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B485B12C19BA6300754C11 /* MainStartView.swift */; };
@@ -58,6 +59,7 @@
 		536132412C22E4AB000FD126 /* SuggestedPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedPathView.swift; sourceTree = "<group>"; };
 		538AF68B2BEE52EA00DFE222 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		538AF68D2BEE643700DFE222 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5391D8E42C32974C0015A6FD /* DailyCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCalendarView.swift; sourceTree = "<group>"; };
 		53A591BC2BE2BFDD00BBB034 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		53A591C02BE3B30000BBB034 /* InteractiveUpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveUpdatesView.swift; sourceTree = "<group>"; };
 		53B485B12C19BA6300754C11 /* MainStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStartView.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				53B485B12C19BA6300754C11 /* MainStartView.swift */,
+				5391D8E42C32974C0015A6FD /* DailyCalendarView.swift */,
 				53A591C02BE3B30000BBB034 /* InteractiveUpdatesView.swift */,
 				5361323F2C21BA65000FD126 /* DirectionArrowView.swift */,
 				53B485B32C19CD7800754C11 /* FullFloorMapView.swift */,
@@ -318,6 +321,7 @@
 				536132402C21BA65000FD126 /* DirectionArrowView.swift in Sources */,
 				530A06E82BEDA72E004775D1 /* AllRoomsView.swift in Sources */,
 				53A591C12BE3B30000BBB034 /* InteractiveUpdatesView.swift in Sources */,
+				5391D8E52C32974C0015A6FD /* DailyCalendarView.swift in Sources */,
 				530C0BFB2BC044AB00FB4BDD /* MuseumBeaconApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
