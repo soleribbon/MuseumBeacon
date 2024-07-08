@@ -56,13 +56,21 @@ struct DailyCalendarView: View {
                             }
                             .frame(height: hourHeight)
                         }
-                    }
+                    }.accessibilityHidden(true)
+
+                    // Hidden VStack for VoiceOver
+                    VStack {
+                        ForEach(events.sorted(by: { $0.startDate < $1.startDate })) { event in
+                            eventCell(event).hidden()
+                        }
+                    }.accessibilityElement(children: .contain)
 
                     ForEach(events) { event in
                         eventCell(event)
                     }
                 }
             }.scrollIndicators(.hidden)
+
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: backButton)
@@ -85,6 +93,7 @@ struct DailyCalendarView: View {
         }
         .padding([.top, .leading, .trailing])
         .foregroundStyle(Color("wfpBlue"))
+        .accessibilityElement(children: .combine)
 
     }
 
