@@ -92,7 +92,7 @@ struct BeaconSetup {
         ),
 
         createMuseumBeacon(
-            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647826",
+            uuidString: "F7EE7452-C9F4-D114-858E-BBE0043FFFEE",
             identifier: "Beacon5",
             roomName: "The Corridor",
             imageName: "junction",
