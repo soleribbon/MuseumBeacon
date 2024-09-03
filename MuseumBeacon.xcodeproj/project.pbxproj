@@ -14,6 +14,7 @@
 		530C0C0C2BC044AD00FB4BDD /* MuseumBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0C0B2BC044AD00FB4BDD /* MuseumBeaconTests.swift */; };
 		530C0C162BC044AD00FB4BDD /* MuseumBeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0C152BC044AD00FB4BDD /* MuseumBeaconUITests.swift */; };
 		530C0C182BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C0C172BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift */; };
+		534BA37B2C8719C400026AFE /* BeaconDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534BA37A2C8719C400026AFE /* BeaconDetectionView.swift */; };
 		536132402C21BA65000FD126 /* DirectionArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5361323F2C21BA65000FD126 /* DirectionArrowView.swift */; };
 		536132422C22E4AB000FD126 /* SuggestedPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536132412C22E4AB000FD126 /* SuggestedPathView.swift */; };
 		538AF68C2BEE52EA00DFE222 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AF68B2BEE52EA00DFE222 /* RoomView.swift */; };
@@ -55,6 +56,7 @@
 		530C0C112BC044AD00FB4BDD /* MuseumBeaconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseumBeaconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		530C0C152BC044AD00FB4BDD /* MuseumBeaconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumBeaconUITests.swift; sourceTree = "<group>"; };
 		530C0C172BC044AD00FB4BDD /* MuseumBeaconUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumBeaconUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		534BA37A2C8719C400026AFE /* BeaconDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetectionView.swift; sourceTree = "<group>"; };
 		5361323F2C21BA65000FD126 /* DirectionArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionArrowView.swift; sourceTree = "<group>"; };
 		536132412C22E4AB000FD126 /* SuggestedPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedPathView.swift; sourceTree = "<group>"; };
 		538AF68B2BEE52EA00DFE222 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				530A06E72BEDA72E004775D1 /* AllRoomsView.swift */,
 				538AF68B2BEE52EA00DFE222 /* RoomView.swift */,
 				536132412C22E4AB000FD126 /* SuggestedPathView.swift */,
+				534BA37A2C8719C400026AFE /* BeaconDetectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				536132422C22E4AB000FD126 /* SuggestedPathView.swift in Sources */,
 				538AF68C2BEE52EA00DFE222 /* RoomView.swift in Sources */,
 				53B485B22C19BA6300754C11 /* MainStartView.swift in Sources */,
+				534BA37B2C8719C400026AFE /* BeaconDetectionView.swift in Sources */,
 				536132402C21BA65000FD126 /* DirectionArrowView.swift in Sources */,
 				530A06E82BEDA72E004775D1 /* AllRoomsView.swift in Sources */,
 				53A591C12BE3B30000BBB034 /* InteractiveUpdatesView.swift in Sources */,
@@ -484,7 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"MuseumBeacon/Preview Content\"";
 				DEVELOPMENT_TEAM = 9BE635EL7K;
 				ENABLE_PREVIEWS = YES;
@@ -505,7 +509,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8;
+				MARKETING_VERSION = 0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = raviheyne.MuseumBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -520,7 +524,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"MuseumBeacon/Preview Content\"";
 				DEVELOPMENT_TEAM = 9BE635EL7K;
 				ENABLE_PREVIEWS = YES;
@@ -541,7 +545,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8;
+				MARKETING_VERSION = 0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = raviheyne.MuseumBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -21,9 +21,10 @@ struct MuseumBeacon: Identifiable, Hashable {
 
 struct BeaconSetup {
     static let beacons: [MuseumBeacon] = [
+
         //below are REAL
         createMuseumBeacon(
-            uuidString: "FE5E132D-37D0-FOBO-F898-417AF824B791",
+            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647822",
             identifier: "Beacon1",
             roomName: "Auditorium Entrance",
             imageName: "auditoriumEntrance",
@@ -39,7 +40,7 @@ struct BeaconSetup {
         ),
 
         createMuseumBeacon(
-            uuidString: "25D35EE8-343F-A131-FFB1-3E58873B9D15",
+            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647823",
             identifier: "Beacon2",
             roomName: "Lobby Reception Area",
             imageName: "reception",
@@ -57,7 +58,7 @@ struct BeaconSetup {
         ),
         //NEW BEACON PLACEMENT
         createMuseumBeacon(
-            uuidString: "E101B7E2-7B16-A328-8A4C-ECB6D2ED6A30",
+            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647824",
             identifier: "Beacon3",
             roomName: "Auditorium Corridor",
             imageName: "auditoriumCorridor",
@@ -75,7 +76,7 @@ struct BeaconSetup {
         ),
 
         createMuseumBeacon(
-            uuidString: "A40BD6F0-6091-D524-FCEC-EC2952340278",
+            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647825",
             identifier: "Beacon4",
             roomName: "Nobel Prize",
             imageName: "nobelPrizeArea",
@@ -92,7 +93,7 @@ struct BeaconSetup {
         ),
 
         createMuseumBeacon(
-            uuidString: "F7EE7452-C9F4-D114-858E-BBE0043FFFEE",
+            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647826",
             identifier: "Beacon5",
             roomName: "The Corridor",
             imageName: "junction",
@@ -120,109 +121,6 @@ struct BeaconSetup {
         return MuseumBeacon(id: uuid, identifier: identifier, roomName: roomName, imageName: imageName, description: description, moreInformation: moreInformation, subtitle: subtitle, nearbyRooms: nearbyRooms, suggestedPaths: suggestedPaths)
     }
 }
-
-//BELOW: OLD BEACON UUID VALUES
-//struct BeaconSetup {
-//    static let beacons: [MuseumBeacon] = [
-//        //below are REAL
-//        createMuseumBeacon(
-//            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647822",
-//            identifier: "Beacon1",
-//            roomName: "Auditorium Entrance",
-//            imageName: "auditoriumEntrance",
-//            description: "You are at the entrance to the auditorium.",
-//            subtitle: "Auditorium Area",
-//            nearbyRooms: [
-//                "Auditorium Corridor": "NORTH",
-//            ],
-//            suggestedPaths: [
-//                "Reception Desk": ["Your Position", "Auditorium Corridor", "Corridors Junction", "Reception Desk"],
-//                "Exit": ["Your Position", "Auditorium Corridor", "Corridors Junction", "Reception Desk", "Exit"],
-//            ]
-//        ),
-//
-//        createMuseumBeacon(
-//            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647823",
-//            identifier: "Beacon2",
-//            roomName: "Lobby Reception Area",
-//            imageName: "reception",
-//            description: "Welcome to the Headquarters of the World Food Programme. You have reached the Information and Registration Desk area.",
-//            moreInformation: "This area serves as the primary entrance to WFP headquarters, including a Nobel Prize Medal exhibition.",
-//            subtitle: "Check In",
-//            nearbyRooms: [
-//                "Exit": "NORTHEAST",
-//                "Nobel Peace Prize": "NORTH",
-//                "Corridors Junction": "WEST"
-//            ],
-//            suggestedPaths: [
-//                "Auditorium": ["Your Position", "Corridors Junction", "Auditorium Corridor", "Auditorium Entrance", "Auditorium"],
-//            ]
-//        ),
-//        //NEW BEACON PLACEMENT
-//        createMuseumBeacon(
-//            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647824",
-//            identifier: "Beacon3",
-//            roomName: "Auditorium Corridor",
-//            imageName: "auditoriumCorridor",
-//            description: "This is the corridor that leads to the Auditorium. The Documents desk is at the end of the corridor. There are two big doors, one on the right of the Documents Desk and one on its left. Both doors lead to the Auditorium.",
-//            subtitle: "Hallway",
-//            nearbyRooms: [
-//                "Auditorium": "SOUTH",
-//                "Exit": "NORTHEAST",
-//                "Information Desk": "NORTHEAST"
-//            ],
-//            suggestedPaths: [
-//                "Reception Desk": ["Your Position", "Corridors Junction", "Reception Area"],
-//                "Nobel Prize": ["Your Position", "Corridors Junction", "Reception Area", "Nobel Prize"]
-//            ]
-//        ),
-//
-//        createMuseumBeacon(
-//            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647825",
-//            identifier: "Beacon4",
-//            roomName: "Nobel Prize",
-//            imageName: "nobelPrizeArea",
-//            description: "You are in a standing area to the right of the entrance doors. This area includes the World Food Programme's Nobel Prize.",
-//            moreInformation: "In 2020, the Nobel Peace Prize was awarded to the World Food Programme (WFP) for its efforts to combat hunger and improve conditions for peace in conflict-affected areas. The Nobel Committee recognized the WFP for its crucial role in addressing food insecurity, which is exacerbated by war and conflict, and for its contribution to the prevention of hunger being used as a weapon of war and conflict. The award highlighted the importance of food security in promoting peace and stability, particularly in regions suffering from protracted crises. The WFP's efforts have saved countless lives and underscored the need for global solidarity in tackling hunger and fostering peace.",
-//            subtitle: "Award Area",
-//            nearbyRooms: [
-//                "Exit": "EAST",
-//                "Information Desk": "SOUTHEAST"
-//            ],
-//            suggestedPaths: [
-//                "Auditorium": ["Your Position", "Reception Area", "Corridors Junction", "Auditorium Corridor", "Auditorium"]
-//            ]
-//        ),
-//
-//        createMuseumBeacon(
-//            uuidString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647826",
-//            identifier: "Beacon5",
-//            roomName: "The Corridor",
-//            imageName: "junction",
-//            description: "This is the corridor that connects the Reception Area to the Auditorium. On the right, the Blue Cafeteria and on the left, the Red Cafè.",
-//            subtitle: "Central Junction",
-//            nearbyRooms: [
-//                "Reception Area": "EAST",
-//                "Auditorium Corridor": "WEST",
-//                "Exit": "EAST"
-//            ],
-//            suggestedPaths: [
-//                "Nobel Prize": ["Your Position", "Reception Area", "Nobel Prize"],
-//                "Auditorium": ["Your Position", "Auditorium Corridor", "Auditorium"]
-//            ]
-//        )
-//
-//
-//    ].compactMap { $0 }
-//
-//    private static func createMuseumBeacon(uuidString: String, identifier: String, roomName: String, imageName: String, description: String, moreInformation: String? = nil, subtitle: String, nearbyRooms: [String: String], suggestedPaths: [String: [String]]? = nil) -> MuseumBeacon? {
-//        guard let uuid = UUID(uuidString: uuidString) else {
-//            print("Error: Invalid UUID string provided for \(identifier) with room \(roomName)")
-//            return nil
-//        }
-//        return MuseumBeacon(id: uuid, identifier: identifier, roomName: roomName, imageName: imageName, description: description, moreInformation: moreInformation, subtitle: subtitle, nearbyRooms: nearbyRooms, suggestedPaths: suggestedPaths)
-//    }
-//}
 //----------------------------
 //----------------------------
 //----------------------------

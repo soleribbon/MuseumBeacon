@@ -23,6 +23,19 @@ extension Font {
     }
 }
 
+extension Bundle {
+    /// Returns the app's version number (e.g., "1.0")
+    var appVersion: String {
+        return infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+    }
+
+    /// Returns the app's build number (e.g., "100")
+    var buildNumber: String {
+        return infoDictionary?["CFBundleVersion"] as? String ?? "Unknown"
+    }
+}
+
+
 
 //DELETE BELOW IF EVERYTHING IS GOOD WITH NEW BEACON IDs
 //let loremIpsum = """

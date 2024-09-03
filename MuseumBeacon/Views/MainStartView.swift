@@ -10,7 +10,16 @@ import SwiftUI
 struct MainStartView: View {
     @State private var showInteractiveUpdates = false
     let impactMed = UIImpactFeedbackGenerator(style: .medium)
-    
+
+
+    // Access the app version and build number from Bundle
+    private var appVersion: String {
+        return Bundle.main.appVersion
+    }
+    private var buildNumber: String {
+        return Bundle.main.buildNumber
+    }
+
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
@@ -21,13 +30,13 @@ struct MainStartView: View {
                     .scaledToFit()
                     .cornerRadius(20)
                     .accessibilityHidden(true)
-                
+
                 List {
                     Section(header: Text("Welcome")
                         .font(.avenirNext(size: 24))
                         .bold()
                         .foregroundStyle(Color(red: 0.471, green: 0.475, blue: 0.529))
-                            
+
                     ) {
                         Button(action: {
                             impactMed.impactOccurred()
@@ -46,18 +55,42 @@ struct MainStartView: View {
                                         .fontWeight(.semibold)
                                         .foregroundStyle(Color("wfpBlack"))
                                         .accessibilityAddTraits(.isHeader)
-                                    
+
                                     Text("Points of interest are read out-loud, completely hands-free. Just start walking!")
                                         .font(.avenirNext(size: 14))
                                         .foregroundStyle(.gray)
                                 }.padding()
-                                
+
                             }
                         }
                     }
                     .headerProminence(.increased)
-                    
+
                     Section {
+
+                        NavigationLink(destination: BeaconDetectionView()) {
+                            HStack {
+                                Image(systemName: "antenna.radiowaves.left.and.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
+                                    .foregroundStyle(Color("wfpBlue"))
+                                    .padding(.leading, 10)
+                                VStack(alignment: .leading) {
+                                    Text("Test Beacon Connections")
+                                        .font(.avenirNext(size: 18))
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(Color("wfpBlack"))
+                                        .accessibilityAddTraits(.isHeader)
+                                    Text("For development/testing use only.")
+                                        .font(.avenirNext(size: 14))
+                                        .foregroundStyle(.gray)
+                                }
+                                .padding()
+                            }
+                        }
+
+                        
 
                         NavigationLink(destination: DailyCalendarView()) {
                             HStack {
@@ -125,29 +158,29 @@ struct MainStartView: View {
                                 .padding()
                             }
                         }
-                        
+
                     }
                     Section {
-                        Text("Beta v0.8")
+                        Text("Beta v\(appVersion) (\(buildNumber))")
                             .font(.avenirNext(size: 12))
                             .foregroundStyle(.gray)
                             .accessibilityHidden(true)
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
                     .listRowBackground(Color.clear)
-                    
+
                 }
                 .listStyle(.insetGrouped)
                 .environment(\.horizontalSizeClass, .regular)
                 .navigationBarTitleDisplayMode(.inline)
-                
+
             }
-            
+
             .fullScreenCover(isPresented: $showInteractiveUpdates, content: InteractiveUpdatesView.init)
             .background(Color(UIColor.systemGroupedBackground))
         }
     }
-    
+
     private var headerView: some View {
         HStack(alignment: .center) {
             Image("WFPLogo")
