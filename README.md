@@ -7,7 +7,7 @@
 
 Detect various iBeacons placed in museum exhibition rooms and show associated information.
 
-An indoor guide app built around iBeacons. Walk into a room and the app recognizes the closest beacon, shows information about where you are, and reads it out loud, completely hands-free. It's currently configured for the World Food Programme headquarters in Rome (Level 1).
+An indoor guide app built around iBeacons. Walk into a room and the app recognizes the closest beacon, shows information about where you are, and reads it out loud, completely hands-free. Currently configured for one of my personal spaces.
 
 
 ## Features
